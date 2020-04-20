@@ -11,10 +11,21 @@ const roundResults = [
     "This round: ** PLAYER SELECTION ERROR **"
 ];
 let roundResult;
+let roundsTotal = 0;
+let roundsWon = 0;
+let roundsLost= 0;
+let roundsInvalid = 0;
+let checkPlayerSelectionMsg;
 playRound();
 // The Game
 function playRound(playerSelection = prompt("What do you choose?"), computerSelection = computerPlay()) {
+    roundsTotal = roundsTotal + 1;
     if (playerSelection === null) {
+        console.log("[[[ GAME SCORE ]]]")
+        console.log(`Total Rounds: ${roundsTotal}`);
+        console.log(`Total Rounds Won: ${roundsWon}`);
+        console.log(`Total Rounds Loat: ${roundsLost}`);
+        console.log(`Total Rounds Invalid: ${roundsInvalid}`)
         console.log("~~ The End ~~");
         return;
     }
@@ -38,8 +49,10 @@ function computerPlay() {
 function playingRound(playerSelection, computerSelection){
     if (isRoundValid(playerSelection)) {
         getWinner(playerSelection, computerSelection);
+        console.log(roundResult);
         return;
     } else {
+        roundsInvalid = roundsInvalid + 1;
         console.log(roundResults[3]);
         return;
     }
@@ -52,6 +65,7 @@ function redoRound(playerSelection) {
 // Check if round is valid if player insterted one of the permited options
 function isRoundValid(playerSelection) {
     if (checkPlayerSelection(playerSelection)) {
+        console.log(`Why true? Because player selection was [${playerSelection}]`);
         return true;
     } else {
         return false;
@@ -62,12 +76,16 @@ function getWinner(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         roundResult = roundResults[0];
     } else if (playerSelection == playOptions[0] && computerSelection == playOptions[2]) {
+        roundsWon = roundsWon + 1;
         roundResult = roundResults[1];
     } else if (playerSelection == playOptions[1] && computerSelection == playOptions[0]) {
+        roundsWon = roundsWon + 1;
         roundResult = roundResults[1];
     } else if (playerSelection == playOptions[2] && computerSelection == playOptions[1]) {
+        roundsWon = roundsWon + 1;
         roundResult = roundResults[1];
     } else {
+        roundsLost = roundsLost + 1;
         roundResult = roundResults[2];
     }
     return roundResult;
@@ -75,10 +93,10 @@ function getWinner(playerSelection, computerSelection) {
 // Check out what the player entered and see if it doesnt match our list of Options
 function checkPlayerSelection (playerSelection) {
     if (playerSelection == playOptions[0] || playerSelection == playOptions[1] || playerSelection == playOptions[2]) {
-        console.log(`Why true? Because player selection was [${playerSelection}]`)
+        //console.log(`Why true? Because player selection was [${playerSelection}]`);
         return true;
     } else {
-        console.log(`Why false? Because player selection was [${playerSelection}]`);
+        //console.log(`Why false? Because player selection was [${playerSelection}]`);
         return false;
     }
 }
