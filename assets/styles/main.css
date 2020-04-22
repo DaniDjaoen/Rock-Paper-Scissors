@@ -16,6 +16,24 @@ hr {
 .stages {
     display: none;
 }
+@keyframes hideLastStage {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.before-loading-stage {
+    opacity: 0;
+    animation-name: hideLastStage;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
 #loading-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -27,6 +45,7 @@ hr {
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.7;
 }
 @keyframes loading-anim{
     0%, 50% {
@@ -77,16 +96,13 @@ hr {
     text-align: center;
 }
 
-#stage-1-container {
-    margin-top: 100px;
-    padding-top: 25px;
+.stages-container {
+    margin: 100px 150px;
     background-color: rgba(255, 255, 255, 0.8);
-    margin-right: 150px;
-    margin-left: 150px;
     border-radius: 20px;
-    padding-bottom: 25px;
+    padding: 25px 50px;
 }
-#game-header {
+.game-headers {
     margin-left: auto;
     margin-right: auto;
     display: grid;
@@ -126,8 +142,6 @@ hr {
 }
 #game-description-text {
     background-color: rgba(0, 0, 0, 0.1);
-    margin-right: 50px;
-    margin-left: 50px;
     padding: 10px;
     border-color: rgba(0, 0, 0, 0.2);
     border-width: 2px;
@@ -136,8 +150,6 @@ hr {
 #game-start-options {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 50px;
-    margin-right: 50px;
     column-gap: 20px;
     text-align: center;
 }
@@ -158,4 +170,103 @@ hr {
     border-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     color: rgba(0, 0, 0, 0.8);
+}
+#game-current-round-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(64, 224, 208);
+    text-align: center;
+    column-gap: 20px;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+#game-current-round-board p {
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+}
+#game-current-status-showcase {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    text-align: center;
+    margin-top: 30px;
+    column-gap: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.action-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-color: rgba(0, 0, 0);
+    border-width: 10px;
+    border-style: solid;
+    padding: 10px;
+    margin: auto;
+    opacity: 0.7;
+}
+.players {
+    padding-top: 25px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+#players-divider {
+    align-self: center;
+    font-size: 3em;
+}
+#game-player-action-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    background-color: rgb(64, 224, 208);
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 50px;
+    border-color: rgba(0, 0, 0, 0.6);
+    border-width: 4px;
+    border-style: dashed;
+}
+#game-player-action-options input {
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.2);
+    width: 100px;
+    height: 100px;
+    padding-top: 15px;
+    opacity: 0.6;
+}
+#game-player-action-options input:hover {
+    border-color: rgba(0, 0, 0, 0.9);
+    opacity: 0.8;
+}
+#rock-action {
+    background-color: rgba(160, 81, 45, 0.8);
+    margin-left: auto;
+}
+#rock-action:hover {
+    background-color: sienna;
+}
+#paper-action {
+    background-color: rgba(245, 222, 179, 0.8);
+    margin: auto;
+}
+#paper-action:hover {
+    background-color: wheat;
+}
+#scissor-action {
+    background-color: rgba(192, 192, 192, 0.8);
+    margin-right: auto;
+}
+#scissor-action:hover {
+    background-color: silver;
+}
+#game-player-instruction {
+    text-align: center;
+    opacity: .8;
+    font-weight: bold;
+    font-style: italic;
 }

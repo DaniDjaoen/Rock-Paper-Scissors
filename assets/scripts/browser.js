@@ -12,9 +12,11 @@ document.onreadystatechange = function() {
         stageLoad.style.display = "block";
         document.title = "Rock Paper Scissors | Loading Game ...";
     } else {
-        stageLoad.style.display = "none";
-        stageStart.style.display = "block";
-        document.title = "Rock Paper Scissors | Play Now";
+        setTimeout(function(){
+            stageLoad.style.display = "none";
+            stageStart.style.display = "block";
+            document.title = "Rock Paper Scissors | Play Now";
+        }, 6000)
     }
 }
 function game(rounds = 0) {
