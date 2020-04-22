@@ -5,6 +5,17 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+h1 {
+    margin: 0;
+}
+hr {
+    border-color: black;
+    border-width: 2px;
+    margin-top: 20px;
+}
+.stages {
+    display: none;
+}
 #loading-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -64,4 +75,83 @@ body {
     grid-area: textarea;
     font-size: 2em;
     text-align: center;
+}
+
+#stage-1-container {
+    margin-top: 100px;
+    padding-top: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-right: 150px;
+    margin-left: 150px;
+    border-radius: 20px;
+    padding-bottom: 25px;
+}
+#game-header {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "rockicon papericon scissoricon"
+                         "textarea textarea textarea";
+    max-width: 50%;
+}
+.game-header-icons {
+    align-self: center;
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    border-width: 4px;
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+    margin: auto;
+}
+#game-header-rock {
+    grid-area: rockicon;
+    background-color: sienna;
+}
+#game-header-paper {
+    grid-area: papericon;
+    background-color: wheat;
+}
+#game-header-scissor {
+    grid-area: scissoricon;
+    background-color: silver;
+}
+#game-header-text {
+    text-align: center;
+    grid-area: textarea;
+}
+#game-description-text {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 2px;
+    border-style: solid;
+}
+#game-start-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 50px;
+    margin-right: 50px;
+    column-gap: 20px;
+    text-align: center;
+}
+#game-start-options p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.8em;
+}
+.game-start-option-buttons {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(64, 224, 208);
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 5px;
+}
+.game-start-option-buttons:hover {
+    border-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }

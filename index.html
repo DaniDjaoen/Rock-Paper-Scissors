@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="assets/styles/sanitize.css">
     <link rel="stylesheet" href="assets/styles/main.css">
 </head>
 <body>
     <div id="game-stages">
         
-        <div id="stage-0">
+        <div class="stages" id="stage-0">
             <!-- Loading Game Stage -->
             <div id="stage-0-container">
                 <div id="loading-container">
@@ -22,19 +22,41 @@
             </div>
         </div>
         
-        <div id="stage-1">
+        <div class="stages" id="stage-1">
             <!-- Start Game Stage -->
             <div id="stage-1-container">
+                <div id="game-header">
+                    <div class="game-header-icons" id="game-header-rock"> <img src="assets/images/action_rock.svg" alt="An rock vector"> </div>
+                    <div class="game-header-icons" id="game-header-paper"> <img src="assets/images/action_paper.svg" alt="An paper vector"> </div>
+                    <div class="game-header-icons" id="game-header-scissor"> <img src="assets/images/action_scissor.svg" alt="An scissor vector "> </div>
+                    <div id="game-header-text">
+                        <hr>
+                        <h1>Rock Paper Scissors</h1>
+                     </div>
+                </div>
+                <div id="game-description">
+                    <p id="game-description-text">
+                        Rock paper scissors (also known as scissors rock paper, paper rock scissors and scissors paper stone) is a hand game usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand.
+                    </p>
+                </div>
+                <div id="game-start-options">
+                    <button class="game-start-option-buttons" id="game-start-quick-btn">Quick Game</button>
+                    <button class="game-start-option-buttons" id="game-start-short-btn">Short Game</button>
+                    <button class="game-start-option-buttons" id="game-start-long-btn">Long Game</button>
+                    <p>(3 Rounds)</p>
+                    <p>(6 Rounds)</p>
+                    <p>(10 Rounds)</p>
+                </div>
             </div>
         </div>
         
-        <div id="stage-2">
+        <div class="stages" id="stage-2">
             <!-- Play Game Stage -->
             <div id="stage-2-container">
             </div>
         </div>
 
-        <div id="stage-3">
+        <div class="stages" id="stage-3">
             <!-- End Game Result Stage -->
             <div id="stage-3-container">
             </div>
