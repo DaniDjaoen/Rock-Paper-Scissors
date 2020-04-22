@@ -17,6 +17,7 @@ let roundsLost= 0;
 let roundsInvalid = 0;
 let checkPlayerSelectionMsg;
 playRound();
+
 // The Game
 function playRound(playerSelection = prompt("What do you choose?"), computerSelection = computerPlay()) {
     roundsTotal = roundsTotal + 1;
