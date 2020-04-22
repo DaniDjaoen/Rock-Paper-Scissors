@@ -97,10 +97,22 @@ hr {
 }
 
 .stages-container {
-    margin: 100px 150px;
+    margin: 100px 150px 10px 150px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 25px 50px;
+}
+.footer-credits {
+    margin: 0 150px;
+    background-color: transparent;
+    text-align: center;
+    opacity: 0.7;
+    font-weight: bold;
+    color: black;
+}
+.footer-credits p{
+    margin: 0;
+    padding: 0;
 }
 .game-headers {
     margin-left: auto;
@@ -229,6 +241,10 @@ hr {
     border-width: 4px;
     border-style: dashed;
 }
+@keyframes anim-fade {
+    from { opacity: 0;}
+    to {opacity: 0.6;}
+}
 #game-player-action-options input {
     border-radius: 50%;
     border-width: 5px;
@@ -237,7 +253,9 @@ hr {
     width: 100px;
     height: 100px;
     padding-top: 15px;
-    opacity: 0.6;
+    animation-name: anim-fade;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 #game-player-action-options input:hover {
     border-color: rgba(0, 0, 0, 0.9);

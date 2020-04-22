@@ -15,6 +15,8 @@ const btnPaperAction = document.querySelector("#paper-action");
 const btnScissorAction = document.querySelector("#scissor-action");
 
 const hidePlayerActions = document.querySelector("#game-player-action-options");
+const hidePlayerActionsInput = document.querySelectorAll(".game-input");
+const loadNextRoundText = document.querySelector("#loading-next-round");
 const changePlayerInstruction = document.querySelector("#game-player-instruction-text");
 
 const gameHumanActionShow = document.querySelector("#human-action-img");
@@ -39,6 +41,8 @@ const showScissorChosen = document.querySelector("#action-scissor-chosen");
 const rockImg = "assets/images/action_rock.svg";
 const paperImg = "assets/images/action_paper.svg";
 const scissorImg = "assets/images/action_scissor.svg";
+
+loadNextRoundText.style.display = "none";
 
 document.onreadystatechange = function() {
     if (document.readyState !== "complete") {
@@ -95,6 +99,7 @@ function game(rounds = 0) {
         let cpuActionResult = getCpuAction();
         let roundResultCounter = getRoundResult(humanActionResult, cpuActionResult);
         countRoundResults(roundResultCounter);
+        intervalBetweenRounds();
     });
     btnPaperAction.addEventListener('click', function () {
         let humanActionResult = getHumanAction(action = "paper");
@@ -108,6 +113,7 @@ function game(rounds = 0) {
         let cpuActionResult = getCpuAction();
         let roundResultCounter = getRoundResult(humanActionResult, cpuActionResult);
         countRoundResults(roundResultCounter);
+        intervalBetweenRounds();
     });
     btnScissorAction.addEventListener('click', function () {
         let humanActionResult = getHumanAction(action = "scissor");
@@ -121,9 +127,18 @@ function game(rounds = 0) {
         let cpuActionResult = getCpuAction();
         let roundResultCounter = getRoundResult(humanActionResult, cpuActionResult);
         countRoundResults(roundResultCounter);
+        intervalBetweenRounds();
     });
 
-}
+};
+function intervalBetweenRounds () {
+    hidePlayerActionsInput.forEach(e => e.style.display= "none");
+        loadNextRoundText.style.display = "block";
+        setTimeout( function(){
+            hidePlayerActionsInput.forEach(e => e.style.display = "block");
+            loadNextRoundText.style.display = "none";
+        }, 1000);
+};
 function countRoundResults(roundResultCounter) {
     let gameRoundResults = [];
     switch (roundResultCounter) {
