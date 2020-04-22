@@ -63,33 +63,33 @@
                     </div>
                 </div>
                 <div id="game-current-round-board">
-                    <p>Current Round # <i>0</i></p>
-                    <p>Rounds Left: <i>3</i> out of <i>3</i></p>
+                    <p>Current Round # <i id="game-current-round"></i></p>
+                    <p>Rounds Left: <i id="game-current-rounds-left"></i> out of <i id="game-current-max-rounds"></i></p>
                 </div>
                 <div id="game-current-status-showcase">
                     <div class="players" id="player-human">
                         <div class="action-box">
-                            <img src="assets/images/action_paper.svg" alt="The action of the human">
+                            <img id="human-action-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="The action of the human">
                         </div>
-                        <p>LOST THIS ROUND!</p>
+                        <p id="human-action-result">Human Player</p>
                     </div>
                     <div id="players-divider">
                         <p>v/s</p>
                     </div>
                     <div class="players" id="player-cpu">
                         <div class="action-box">
-                            <img src="assets/images/action_scissor.svg" alt="The action of the cpu">
+                            <img id="cpu-action-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="The action of the cpu">
                         </div>
-                        <p>WON THIS ROUND!</p>
+                        <p id="cpu-action-result">CPU Player</p>
                     </div>
                 </div>
                 <div id="game-player-action-options">
-                    <input type="image" id="rock-action" src="assets/images/action_rock.svg" alt="">
-                    <input type="image" id="paper-action" src="assets/images/action_paper.svg" alt="">
-                    <input type="image" id="scissor-action" src="assets/images/action_scissor.svg" alt="">
+                    <input type="image" id="rock-action" src="assets/images/action_rock.svg" alt="Rock Action">
+                    <input type="image" id="paper-action" src="assets/images/action_paper.svg" alt="Paper Action">
+                    <input type="image" id="scissor-action" src="assets/images/action_scissor.svg" alt="Scissor Action">
                 </div>
                 <div id="game-player-instruction">
-                    <p>Instruction: Select one the actions (above) to play this round.</p>
+                    <p id="game-player-instruction-text">Instruction: Select one the actions (above) to play this round.</p>
                 </div>
             </div>
         </div>
@@ -106,9 +106,38 @@
                         <h1>Rock, Paper, Scissors</h1>
                     </div>
                 </div>
+                <div id="game-statistic">
+                    <h2>Game Statistics</h2>
+                    <div id="game-statistics-box">
+
+                        <div>
+                            <h3>Rounds Statistics</h3>
+                            <hr>
+                            <ul>
+                                <li id="games-won">Total Rounds [WON]: 0</li>
+                                <li id="games-tie">Total Rounds [TIE]: 0</li>
+                                <li id="games-lost">Total Rounds [LOST]: 0</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>Action Statistics</h3>
+                            <hr>
+                            <ul>
+                                <li id="action-rock-chosen">[ROCK] chosen 0 times.</li>
+                                <li id="action-paper-chosen">[PAPER] chosen 0 times.</li>
+                                <li id="action-scissor-chosen">[SCISSOR] chosen 0 times.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="new-game">
+                    <button id="new-game-btn">Start New Game</button>
+                </div>
                 <div id="tip-jar">
                     <p>
-                        Click on <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M4YZYF66R9V2Y&source=url" target="_blank"><img height="100px" src="https://pluspng.com/img-png/tip-jar-png-tips-are-very-much-appreciated-not-everyone-has-extra-cash-on-them-when-they-attend-300.png" alt="Tip Jar"></a> if you want to give me a tip for my efforts.
+                        Click on <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M4YZYF66R9V2Y&source=url" target="_blank"><img height="60px" src="https://pluspng.com/img-png/tip-jar-png-tips-are-very-much-appreciated-not-everyone-has-extra-cash-on-them-when-they-attend-300.png" alt="Tip Jar"></a> if you want to give me a tip for my efforts.
                     </p>
                     <p>The tips will help with my self-studying software development journey.</p>
                 </div>

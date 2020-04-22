@@ -270,3 +270,48 @@ hr {
     font-weight: bold;
     font-style: italic;
 }
+#game-statistic {
+    background-color: rgb(64, 224, 208);
+    padding: 20px;
+    opacity: 0.7;
+}
+#game-statistics-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+@keyframes anim-jar{
+    50% {
+        transform: scale(1.1);
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+#tip-jar {
+    text-align: center;
+    margin-top: 50px;
+}
+#tip-jar img {
+    animation-name: anim-jar;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+#new-game-btn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(64, 224, 208);
+    border-color: rgba(0, 0, 0, 0.2);
+    border-width: 5px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+#new-game-btn:hover {
+    border-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.8);
+}
