@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 const stageLoad = document.querySelector("#stage-0");
 const stageStart = document.querySelector("#stage-1");
+const stagePlay = document.querySelector("#stage-2");
 const stages = document.querySelector(".stages");
 const btnQuickRound = document.querySelector("#game-start-quick-btn");
 const btnShortRound = document.querySelector("#game-start-short-btn");
@@ -17,8 +18,15 @@ document.onreadystatechange = function() {
     }
 }
 function game(rounds = 0) {
+    // Start the game
+    console.log("Game Started!");
+    playGameStage();
+    // Set the max round for this game
     let maxRounds = rounds;
-    alert(`This game has ${maxRounds}`);
+    console.log(`This game has ${maxRounds} rounds.`);
+    // Game actions
+    // Game score
+    // Game computer
 }
 btnQuickRound.addEventListener("click", function() {
     game(3);
@@ -29,3 +37,7 @@ btnShortRound.addEventListener("click", function() {
 btnLongRound.addEventListener("click", function() {
     game(10);
 });
+function playGameStage() {
+    stageStart.style.display = "none";
+    stagePlay.style.display = "block";
+}
