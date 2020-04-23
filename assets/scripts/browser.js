@@ -32,10 +32,14 @@ const gameCurrentMaxRounds = document.querySelector("#game-current-max-rounds");
 const showGamesWon = document.querySelector("#games-won");
 const showGamesTie = document.querySelector("#games-tie");
 const showGamesLost = document.querySelector("#games-lost");
+const showWinner = document.querySelector("#show-winner");
 
 const showRockChosen = document.querySelector("#action-rock-chosen");
 const showPaperChosen = document.querySelector("#action-paper-chosen");
 const showScissorChosen = document.querySelector("#action-scissor-chosen");
+
+const gameHumanPlayer = document.querySelector("#player-human");
+const gameCpuPlayer = document.querySelector("#player-cpu");
 
 
 const rockImg = "assets/images/action_rock.svg";
@@ -66,9 +70,6 @@ let roundsLost = 0;
 let roundsTie = 0;
 // The main logic
 function game(rounds = 0) {
-    roundsWon = 0;
-    roundsLost = 0;
-    roundsTie = 0;
     // Start the game
     console.log("Game Started!");
     playGameStage();
@@ -161,6 +162,16 @@ function countRoundResults(roundResultCounter) {
     showGamesWon.textContent = gameRoundResults[0];
     showGamesTie.textContent = gameRoundResults[1];
     showGamesLost.textContent = gameRoundResults[2];
+    if (roundsWon == roundsLost) {
+        showWinner.textContent = "GAME RESULT: [TIE]";
+        showWinner.style.color = "brown"
+    } else if (roundsWon > roundsLost) {
+        showWinner.textContent = "GAME RESULT: [WON]";
+        showWinner.style.color = "gold"
+    } else {
+        showWinner.textContent = "GAME RESULT: [LOST]";
+        showWinner.style.color = "red"
+    }
 }
 function getRoundResult(humanActionResult, cpuActionResult) {
     const humanWonText = "Human Player: [WON]!!";
@@ -175,32 +186,46 @@ function getRoundResult(humanActionResult, cpuActionResult) {
     if (humanActionResult == cpuActionResult) {
         gameHumanActionResult.textContent = roundDrawText;
         gameCpuActionResult.textContent = roundDrawText;
+
         console.log(`Human Player: ${humanActionResult}`);
         console.log(`CPU Player: ${cpuActionResult}`);
+
+        gameCpuPlayer.setAttribute("class", "players");
+        gameHumanPlayer.setAttribute("class", "players");
         return tieCode;
     } else if (humanActionResult == "rock" && cpuActionResult == "scissor") {
         gameHumanActionResult.textContent = humanWonText;
         gameCpuActionResult.textContent = cpuLostText;
+
         console.log(`Human Player: ${humanActionResult}`);
         console.log(`CPU Player: ${cpuActionResult}`);
+
+        gameCpuPlayer.setAttribute("class", "players player-lost");
+        gameHumanPlayer.setAttribute("class", "players player-won");
         return wonCode;
     } else if (humanActionResult == "paper" && cpuActionResult == "rock") {
         gameHumanActionResult.textContent = humanWonText;
         gameCpuActionResult.textContent = cpuLostText;
         console.log(`Human Player: ${humanActionResult}`);
         console.log(`CPU Player: ${cpuActionResult}`);
+        gameCpuPlayer.setAttribute("class", "players player-lost");
+        gameHumanPlayer.setAttribute("class", "players player-won");
         return wonCode;
     } else if (humanActionResult == "scissor" && cpuActionResult == "paper") {
         gameHumanActionResult.textContent = humanWonText;
         gameCpuActionResult.textContent = cpuLostText;
         console.log(`Human Player: ${humanActionResult}`);
         console.log(`CPU Player: ${cpuActionResult}`);
+        gameCpuPlayer.setAttribute("class", "players player-lost");
+        gameHumanPlayer.setAttribute("class", "players player-won");
         return wonCode;
     } else {
         gameHumanActionResult.textContent = humanLostText;
         gameCpuActionResult.textContent = cpuWonText;
         console.log(`Human Player: ${humanActionResult}`);
         console.log(`CPU Player: ${cpuActionResult}`);
+        gameCpuPlayer.setAttribute("class", "players player-won");
+        gameHumanPlayer.setAttribute("class", "players player-lost");
         return lostCode;
     }
 }
@@ -267,7 +292,18 @@ btnLongRound.addEventListener("click", function() {
 
 const btnStartNewGame = document.querySelector("#new-game-btn");
 btnStartNewGame.addEventListener("click", function(){
-    //stageResult.style.display = "none";
-    //stageStart.style.display = "block";
+
+    /* Code without roloading the page, but i can't figure out a way to reset game scores.
+
+
+    stageResult.style.display = "none";
+    stageStart.style.display = "block";
+    gameCpuPlayer.setAttribute("class", "players");
+    gameHumanPlayer.setAttribute("class", "players");
+    gameHumanActionResult.textContent = "Human Player";
+    gameCpuActionResult.textContent = "CPU Player";
+    gameCpuActionShow.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";
+    gameHumanActionShow.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";*/
+
     window.location.reload();
 });

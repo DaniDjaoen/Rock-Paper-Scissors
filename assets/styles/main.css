@@ -40,12 +40,12 @@ hr {
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "rockicon papericon scissoricon"
                          "textarea textarea textarea";
-    max-width: 430px;
     column-gap: 35px;
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.7;
+    width: 50vw;
 }
 @keyframes loading-anim{
     0%, 50% {
@@ -60,15 +60,18 @@ hr {
 
 }
 .anim-loading-icons {
-    align-self: center;
     border-radius: 50%;
     border-color: black;
     border-style: solid;
     border-width: 4px;
-    width: 120px;
-    height: 120px;
     padding: 15px;
+    height: max-content;
 
+}
+.anim-loading-icons img {
+    padding: 10px;
+    width: 100%;
+    height: auto;
 }
 #anim-rock {
     grid-area: rockicon;
@@ -97,18 +100,20 @@ hr {
 }
 
 .stages-container {
-    margin: 100px 150px 10px 150px;
+    margin: 100px auto 10px auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 25px 50px;
+    width: 80vw;
 }
 .footer-credits {
-    margin: 0 150px;
+    margin: auto;
     background-color: transparent;
     text-align: center;
     opacity: 0.7;
     font-weight: bold;
     color: black;
+    width: 80vw;
 }
 .footer-credits p{
     margin: 0;
@@ -122,19 +127,23 @@ hr {
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "rockicon papericon scissoricon"
                          "textarea textarea textarea";
-    max-width: 50%;
     opacity: 0.7;
+    width: 50%;
+    column-gap: 10px;
 }
 .game-header-icons {
-    align-self: center;
     border-radius: 50%;
     border-color: black;
     border-style: solid;
     border-width: 4px;
-    width: 100px;
-    height: 100px;
-    padding: 15px;
+    text-align: center;
     margin: auto;
+    height: max-content;
+}
+.game-header-icons img {
+    padding: 10px;
+    width: 100%;
+    height: auto;
 }
 #game-header-rock {
     grid-area: rockicon;
@@ -177,6 +186,7 @@ hr {
     border-width: 5px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.6);
+    width: 100%;
 }
 .game-start-option-buttons:hover {
     border-color: rgba(0, 0, 0, 0.5);
@@ -209,8 +219,6 @@ hr {
     margin-bottom: 20px;
 }
 .action-box {
-    width: 200px;
-    height: 200px;
     border-radius: 50%;
     border-color: rgba(0, 0, 0);
     border-width: 10px;
@@ -218,11 +226,32 @@ hr {
     padding: 10px;
     margin: auto;
     opacity: 0.7;
+    max-width: 200px;
+}
+.action-box img {
+    height: auto;
+    width: 100%;
+}
+@keyframes anim-result {
+    from {
+        background-color: transparent;
+    }
+}
+.player-won {
+    background-color: rgba(218, 165, 32, 0.5);
+    animation-name: anim-result;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+.player-lost {
+    background-color: rgba(255, 0, 0, 0.5);
+    animation-name: anim-result;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 .players {
     padding-top: 25px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-radius: 50px;
 }
 #players-divider {
     align-self: center;
@@ -235,7 +264,7 @@ hr {
     background-color: rgb(64, 224, 208);
     font-weight: bold;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     border-radius: 50px;
     border-color: rgba(0, 0, 0, 0.6);
     border-width: 4px;
@@ -250,12 +279,12 @@ hr {
     border-width: 5px;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.2);
-    width: 100px;
-    height: 100px;
-    padding-top: 15px;
+    padding: 10px;
     animation-name: anim-fade;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    width: 100%;
+    max-width: 120px;
 }
 #game-player-action-options input:hover {
     border-color: rgba(0, 0, 0, 0.9);
@@ -332,4 +361,55 @@ hr {
     border-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     color: rgba(0, 0, 0, 0.8);
+}
+#loading-next-round {
+    text-align: center;
+    grid-column: 1 / 4;
+}
+@media (max-width: 768px) {
+    .stages-container {
+        width: 80vw;
+    }
+    .game-headers {
+        width: 80%;
+    }
+}
+@media (max-width: 575px) {
+    .game-headers {
+        width: 100%;
+    }
+    .action-box {
+        border-width: 5px;
+    }
+    hr {
+        margin-top: 10px;
+    }
+    .stages-container {
+        width: 90vw;
+        margin-top: 20px;
+        padding: 15px;
+    }
+    #game-start-options {
+        grid-template-columns: 1fr;
+    }
+    #players-divider {
+        font-size: 20px;
+        padding: 10px;
+    }
+    #game-current-round-board p{
+        font-size: 1.5em;
+        padding: 5px;
+    }
+    #game-statistics-box {
+        grid-template-columns: 1fr;
+    }
+    #loading-container {
+        width: 90vw;
+    }
+    .anim-loading-icons {
+        padding: 0;
+    }
+    #anim-text p {
+        margin: 10px 0;
+    }
 }
