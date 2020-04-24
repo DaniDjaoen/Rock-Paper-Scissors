@@ -57,11 +57,13 @@ document.onreadystatechange = function() {
             stageLoad.style.display = "none";
             stageStart.style.display = "block";
             document.title = "Rock Paper Scissors | Play Now";
-        }, 6000)
+        }, 3000)
     }
 }
 // Hide Start Game Stage
 function playGameStage() {
+    gameHumanActionShow.style.visibility = "hidden";
+    gameCpuActionShow.style.visibility = "hidden";
     stageStart.style.display = "none";
     stagePlay.style.display = "block";
 }
@@ -89,6 +91,8 @@ function game(rounds = 0) {
     // Game score
     // Game computer
     btnRockAction.addEventListener('click', function () {
+        gameHumanActionShow.style.visibility = "visible";
+        gameCpuActionShow.style.visibility = "visible";
         let humanActionResult = getHumanAction(action = "rock");
         rockChosen = rockChosen + 1;
         console.log(`Chosen [ROCK]: ${rockChosen}`);
@@ -103,6 +107,8 @@ function game(rounds = 0) {
         intervalBetweenRounds();
     });
     btnPaperAction.addEventListener('click', function () {
+        gameHumanActionShow.style.visibility = "visible";
+        gameCpuActionShow.style.visibility = "visible";
         let humanActionResult = getHumanAction(action = "paper");
         paperChosen = paperChosen + 1;
         console.log(`Chosen [PAPER]: ${paperChosen}`);
@@ -117,6 +123,8 @@ function game(rounds = 0) {
         intervalBetweenRounds();
     });
     btnScissorAction.addEventListener('click', function () {
+        gameHumanActionShow.style.visibility = "visible";
+        gameCpuActionShow.style.visibility = "visible";
         let humanActionResult = getHumanAction(action = "scissor");
         scissorChosen = scissorChosen + 1;
         console.log(`Chosen [SCISSOR]: ${scissorChosen}`);
