@@ -327,6 +327,10 @@ hr {
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
 }
+#show-winner {
+    padding: 10px;
+    background-color: white;
+}
 @keyframes anim-jar{
     50% {
         transform: scale(1.1);
